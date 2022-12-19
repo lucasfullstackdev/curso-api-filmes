@@ -30,4 +30,9 @@ class Filme extends Model
     {
         return $this->hasManyThrough(Genero::class, FilmeGenero::class, 'filme_id', 'id', 'id', 'genero_id');
     }
+
+    public function atores()
+    {
+        return $this->hasManyThrough(Ator::class, FilmeAtor::class, 'filme_id', 'id', 'id', 'ator_id');
+    }
 }
