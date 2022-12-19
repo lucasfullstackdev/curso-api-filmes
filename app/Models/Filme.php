@@ -25,4 +25,9 @@ class Filme extends Model
     {
         return $this->hasOne(Classificacao::class, 'id', 'classificacao_id');
     }
+
+    public function generos()
+    {
+        return $this->hasManyThrough(Genero::class, FilmeGenero::class, 'filme_id', 'id', 'id', 'genero_id');
+    }
 }
