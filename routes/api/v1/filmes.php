@@ -19,4 +19,9 @@ Route::prefix('/')->group(function () {
     Route::put('/{id}', [FilmeController::class, 'update']);
 
     Route::delete('/{id}', [FilmeController::class, 'destroy']);
+
+    Route::get('/{id}/atores', [FilmeController::class, 'atores']);
+    Route::get('/{id}/diretores', [FilmeController::class, 'diretores']);
+    Route::get('/{id}/generos', [FilmeController::class, 'generos']);
+    Route::get('/{id}/classificacao', [FilmeController::class, 'classificacao']);
 });

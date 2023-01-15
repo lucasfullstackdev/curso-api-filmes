@@ -48,4 +48,32 @@ class FilmeController extends Controller
             $this->service->destroy($id)
         );
     }
+
+    public function atores(int $id)
+    {
+        return response()->json(
+            $this->service->atores($id)
+        );
+    }
+
+    public function diretores(int $id)
+    {
+        return response()->json(
+            $this->service->diretores($id)
+        );
+    }
+
+    public function generos(int $id)
+    {
+        return response()->json(
+            $this->service->generos($id)
+        );
+    }
+
+    public function classificacao(int $id)
+    {
+        return response()->json(
+            $this->service->classificacao($id)
+        );
+    }
 }

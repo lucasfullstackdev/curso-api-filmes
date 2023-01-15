@@ -12,6 +12,11 @@ abstract class Service
     {
     }
 
+    public function find(int $id)
+    {
+        return $this->model::find($id);
+    }
+
     public function all()
     {
         return $this->success(
@@ -66,7 +71,7 @@ abstract class Service
         }
     }
 
-    private function error(string $error): array
+    protected function error(string $error): array
     {
         return [
             'success' => false,
@@ -74,7 +79,7 @@ abstract class Service
         ];
     }
 
-    private function success($data): array
+    protected function success($data): array
     {
         return [
             'success' => true,
