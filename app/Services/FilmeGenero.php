@@ -25,21 +25,21 @@ class FilmeGenero extends Service implements IService
 
     public function store(FormRequest $request)
     {
-        $filmeAtor = ModelsFilmeGenero::create($request->all());
+        $filmeGenero = ModelsFilmeGenero::create($request->all());
 
-        return $this->success($filmeAtor);
+        return $this->success($filmeGenero);
     }
 
     public function destroy(int $id)
     {
-        $filmeAtor = ModelsFilmeGenero::find($id);
+        $filmeGenero = ModelsFilmeGenero::find($id);
 
-        if (empty($filmeAtor)) {
+        if (empty($filmeGenero)) {
             return $this->error('Entidade não encontrada!');
         }
 
-        $filmeAtor->delete();
+        $filmeGenero->delete();
 
-        return $this->success($filmeAtor);
+        return $this->success($filmeGenero);
     }
 }
