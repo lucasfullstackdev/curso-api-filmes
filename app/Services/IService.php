@@ -12,4 +12,5 @@ interface IService
     public function update(FormRequest $request, int $id);
     public function store(FormRequest $request);
     public function destroy(int $int);
+    public function find(int $id);
 }
