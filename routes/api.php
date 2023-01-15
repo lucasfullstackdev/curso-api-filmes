@@ -21,4 +21,5 @@ Route::prefix('/v1')->group(function () {
     Route::prefix('/classificacoes')->group(realpath(__DIR__ . '/api/v1/classificacoes.php'));
     Route::prefix('/diretores')->group(realpath(__DIR__ . '/api/v1/diretores.php'));
     Route::prefix('/atores')->group(realpath(__DIR__ . '/api/v1/atores.php'));
+    Route::prefix('/filmes')->group(realpath(__DIR__ . '/api/v1/filmes.php'));
 });
