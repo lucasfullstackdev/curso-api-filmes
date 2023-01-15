@@ -19,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/v1')->group(function () {
     Route::prefix('/generos')->group(realpath(__DIR__ . '/api/v1/generos.php'));
     Route::prefix('/classificacoes')->group(realpath(__DIR__ . '/api/v1/classificacoes.php'));
+    Route::prefix('/diretores')->group(realpath(__DIR__ . '/api/v1/diretores.php'));
 });
