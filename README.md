@@ -7,58 +7,336 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+<h1 align="center">API Filmes</h1>
+<h4 align="center">Uma API REST para gerenciamento de Filmes</h4>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Sobre o projeto
+Repositório oficial do curso [Aprenda Laravel na prática](https://aprendalaravelnapratica.jellycode.com.br/).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aqui abordamos os prinicipais pontos do melhor framework do mercado PHP
+- Models
+- Routes
+- Controllers
+- Eloquent ORM
+- Migrations
+- POO
+- Modelagem do Banco de Dados
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Por que este projeto?
+- Este projeto faz parte da minha série de cursos focados na capacitação e direcionamento de desenvolvedores que gostariam de dar o próximo passo, adquirir mais confiança no seu trabalho, conseguir promoção ou fazer transição de carreira
+- A construção de API's faz parte da rotina de um desenvolvedor back-end, então esse projeto serviu como uma simulação da rotina real de um desenvolvedor back-end atuando com LARAVEL.
 
-## Learning Laravel
+## Sobre a modelagem do Banco de Dados
+- O desafio consistia na construção de uma API REST utilizando LARAVEL que permitisse o gerenciamento de filmes.
+- Para o desafio foram criadas as seguintes tabelas:
+	- genero
+	- classificacao
+	- ator
+	- diretor
+	- filme
+	- filme_ator
+	- filme_diretor
+	- filme_genero
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Sobre as Rotas
+## Gênero
+```php
+Method: GET
+Url: /api/v1/generos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Para listar todos os gêneros
+```
 
-## Laravel Sponsors
+```php
+Method: GET
+Url: /api/v1/generos/{id}
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Para listar um gênero em específico
+```
 
-### Premium Partners
+```php
+Method: POST
+Url: /api/v1/generos
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Para Adicionar um novo gênero
+- Parameters:
+	-	ds_genero (string)
+```
 
-## Contributing
+```php
+Method: PUT/PATCH
+Url: /api/v1/generos/{id}
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Para Atualizar um gênero
+- Parameters:
+	-	ds_genero (string)
+```
 
-## Code of Conduct
+```php
+Method: DELETE
+Url: /api/v1/generos/{id}
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Classificacao
+```php
+Method: GET
+Url: /api/v1/classificacoes
 
-## Security Vulnerabilities
+- Para listar todos as classificações
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```php
+Method: GET
+Url: /api/v1/classificacoes/{id}
 
-## License
+- Para listar uma classificação em específico
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```php
+Method: POST
+Url: /api/v1/classificacoes
+
+- Para Adicionar uma nova classificação
+- Parameters:
+	- ds_classificacao (string)
+	- ds_observacao (text)
+	- ds_violencia (text)
+	- ds_sexo_nudez (text)
+	- ds_drogas  (text)
+```
+
+```php
+Method: PUT/PATCH
+Url: /api/v1/classificacoes/{id}
+
+- Para Atualizar uma classificação
+- Parameters:
+	- ds_classificacao (string)
+	- ds_observacao (text)
+	- ds_violencia (text)
+	- ds_sexo_nudez (text)
+	- ds_drogas  (text)
+```
+
+```php
+Method: DELETE
+Url: /api/v1/classificacoes/{id}
+```
+
+## Ator
+```php
+Method: GET
+Url: /api/v1/atores
+
+- Para listar todos os atores
+```
+
+```php
+Method: GET
+Url: /api/v1/atores/{id}
+
+- Para listar um ator em específico
+```
+
+```php
+Method: POST
+Url: /api/v1/atores
+
+- Para Adicionar um novo ator
+- Parameters:
+	-	nm_ator (string)
+```
+
+```php
+Method: PUT/PATCH
+Url: /api/v1/atores/{id}
+
+- Para Atualizar um ator
+- Parameters:
+	-	nm_ator (string)
+```
+
+```php
+Method: DELETE
+Url: /api/v1/atores/{id}
+```
+
+## Diretor
+```php
+Method: GET
+Url: /api/v1/diretores
+
+- Para listar todos os diretores
+```
+
+```php
+Method: GET
+Url: /api/v1/diretores/{id}
+
+- Para listar um diretor em específico
+```
+
+```php
+Method: POST
+Url: /api/v1/diretores
+
+- Para Adicionar um novo diretor
+- Parameters:
+	-	nm_diretor (string)
+```
+
+```php
+Method: PUT/PATCH
+Url: /api/v1/diretores/{id}
+
+- Para Atualizar um diretor
+- Parameters:
+	-	nm_diretor (string)
+```
+
+```php
+Method: DELETE
+Url: /api/v1/diretores/{id}
+```
+
+## Filme
+```php
+Method: GET
+Url: /api/v1/filmes
+
+- Para listar todos os filmes
+```
+
+```php
+Method: GET
+Url: /api/v1/filmes/{id}
+
+- Para listar um filme em específico
+```
+
+```php
+Method: POST
+Url: /api/v1/filmes
+
+- Para Adicionar um novo filme
+- Parameters:
+	- titulo (string)
+	- dt_lancamento (datetime)
+	- duracao (string)
+	- classificacao_id (int)(foreign key)
+```
+
+```php
+Method: PUT/PATCH
+Url: /api/v1/filmes/{id}
+
+- Para Atualizar um filme
+- Parameters:
+	- titulo (string)
+	- dt_lancamento (datetime)
+	- duracao (string)
+	- classificacao_id (int)(foreign key)
+```
+
+```php
+Method: DELETE
+Url: /api/v1/filmes/{id}
+```
+
+## Filme Ator
+```php
+Method: GET
+Url: /api/v1/filmes/{id}/atores
+
+- Para listar todos os atores de um filme em específico
+```
+
+```php
+Method: GET
+Url: /api/v1/filmes/{id}/atores/{idAtor}
+
+- Para listar um ator em específico de um determinado filme
+```
+
+```php
+Method: POST
+Url: /api/v1/filmes/{id}/atores
+
+- Para Adicionar um novo ator
+- Parameters:
+	- ator_id (int)(foreign key)
+```
+
+```php
+Method: PUT/PATCH
+Url: /api/v1/filmes/{id}/atores/{idAtor}
+
+- Não implementado, foi preferido a remoção do ator e a posterior adição do novo ator, realizando assim uma troca
+```
+
+```php
+Method: DELETE
+Url: /api/v1/filmes/{id}/atores/{idAtor}
+```
+
+
+## Filme Diretor
+```php
+Method: GET
+Url: /api/v1/filmes/{id}/diretores
+
+- Para listar todos os diretores de um filme em específico
+```
+
+```php
+Method: GET
+Url: /api/v1/filmes/{id}/diretores/{idDiretor}
+
+- Para listar um diretor em específico de um determinado filme
+```
+
+```php
+Method: POST
+Url: /api/v1/filmes/{id}/diretores
+
+- Para Adicionar um novo diretor
+- Parameters:
+	- diretor_id (int)(foreign key)
+```
+
+```php
+Method: PUT/PATCH
+Url: /api/v1/filmes/{id}/diretores/{idDiretor}
+
+- Não implementado, foi preferido a remoção do diretor e a posterior adição do novo diretor, realizando assim uma troca
+```
+
+```php
+Method: DELETE
+Url: /api/v1/filmes/{id}/diretores/{idDiretor}
+```
+
+## Setup
+1. Clone o repositório
+2. Instale o [composer](https://getcomposer.org/download/)
+3. Acesse a raiz do projeto
+4. Com o console aberto, execute o comando: `composer install`
+5. Após a instalação de todas as dependências necessárias, execute o comando: `cp .env.example .env` (para gerar o arquivo .env)
+6. Execute o comando: `php artisan key:generate`
+7. Com o seu ambiente de desenvolvimento rodando, crie uma nova base de dados com o nome: `api_filme`
+8. Para a criação das tabelas e dos registros de teste, execute o comando: `php artisan migrate:fresh --seed`
+9. Após toda a configuração necessária, execute o comando: `php artisan serve`
+10. O projeto deve estar disponível no endereco: [localhost:8000/api/v1/](http://localhost:8000/api/v1/) 
+
+## Observações importantes
+- É aconselhável que você tenha em sua máquia o [postman](https://www.postman.com/) para que possa fazer os devidos testes sobre as rotas disponíveis nesta API.
+
+## Dependências e suas versões
+- PHP 7.4.3 +
+- Extensão de PHP: mysqli | curl | mbstring
+- LARAVEL 8x+
+- Versão do servidor: 10.4.11-MariaDB
+
+## Considerações finais
+- API ainda passará por alterações, esta API não representa uma amostra real, devendo ser utilizada apenas para se ter uma noção sobre como funciona um API REST.
+- Qualquer dúvida ou sugestão, entre em contato pelo e-mail: contato@jellycode.com.br
